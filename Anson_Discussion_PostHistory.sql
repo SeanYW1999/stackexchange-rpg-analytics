@@ -52,3 +52,12 @@ limit 5;
 SELECT Id,Reputation, Views, CreationDate, DisplayName, LastAccessDate, Location from Users
 Order by Reputation DESC
 limit 10;
+
+-- Join two tables of Posthistory and Users
+SELECT Users.Id, Users.DisplayName,COUNT(PostHistory.UserId) as Post_counts_per_user, Users.Views, Users.Reputation from Users
+JOIN PostHistory
+on Users.Id = PostHistory.UserId
+Where PostHistory.PostHistoryTypeId = 2
+GROUP by PostHistory.UserId
+ORDER by Post_counts_per_user DESC
+limit 11;
