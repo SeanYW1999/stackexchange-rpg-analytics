@@ -7,30 +7,15 @@ library(pacman)
 library(ggplot2)
 library(dplyr)
 
-? ggplot()
-
+### ViewCounts_all ###
 p1 <- ggplot(D,
              aes(x = Year, y = ViewCounts, group = GameName, colour = GameName))+
   geom_line()
 p1
 
-### ViewCounts > 10,000,000 ###
-D2 <- D[1:5, ]
+### ViewCounts_low_6 ###
+D2 <- D[c(11:45), ]
 p2 <- ggplot(D2,
              aes(x = Year, y = ViewCounts, group = GameName, colour = GameName))+
   geom_line()
 p2
-
-### ViewCounts > 9,000,000 ###
-D3 <- D[6:10, ]
-p3 <- ggplot(D3,
-             aes(x = Year, y = ViewCounts, group = GameName, colour = GameName))+
-  geom_line()
-p3
-
-### ViewCounts < 9,000,000 ###
-D4 <- D[11:40, ]
-p4 <- ggplot(D4,
-             aes(x = Year, y = ViewCounts, group = GameName, colour = GameName))+
-  geom_line()
-p4
