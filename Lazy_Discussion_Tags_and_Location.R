@@ -121,7 +121,7 @@ shadowrun_playerlist[,3] <- "shadowrun"
 playerlist<- rbind(dnd_playerlist,pathfinder_playerlist,wfd_playerlist,cfd_playerlist,
                    vtm_playerlist,mam_playerlist,dw_playerlist,shadowrun_playerlist)
 nrow(playerlist)
-##############################################################################################################
+############################# Distribute players to their Continents #################################################
 ###add a new column for saving the Location's Nation
 ###use the code in Lazy_Discussion_Location_to_Country.R
 databases_discuss <- playerlist
@@ -167,3 +167,56 @@ for (coun in Africa_list) {
   addlist <- playerlist[which(playerlist$Country==coun),]
   Africa <- rbind(Africa,addlist)
 }
+
+############################# Statistic 8 games player number in 5 Continents #################################################
+### Statistics on the number of players playing these 8 games across 5 continents
+###Americas
+games <- unique(playerlist$Tags)
+games_Am <- data.frame()
+for (g in games) {
+  gamelist <- list(Game = g, 
+                  Player_number = nrow(Americas[which(Americas$Tags==g),]) )
+  games_Am <- rbind(games_Am,gamelist)
+}
+games_Am<-games_Am[order(games_Am$Player_number,decreasing = TRUE),]
+row.names(games_Am) <- 1:nrow(games_Am)
+
+###Europe
+games_Eu <- data.frame()
+for (g in games) {
+  gamelist <- list(Game = g, 
+                   Player_number = nrow(Europe[which(Europe$Tags==g),]) )
+  games_Eu <- rbind(games_Eu,gamelist)
+}
+games_Eu<-games_Eu[order(games_Eu$Player_number,decreasing = TRUE),]
+row.names(games_Eu) <- 1:nrow(games_Eu)
+
+###Asia
+games_Asia <- data.frame()
+for (g in games) {
+  gamelist <- list(Game = g, 
+                   Player_number = nrow(Asia[which(Asia$Tags==g),]) )
+  games_Asia <- rbind(games_Asia,gamelist)
+}
+games_Asia<-games_Asia[order(games_Asia$Player_number,decreasing = TRUE),]
+row.names(games_Asia) <- 1:nrow(games_Asia)
+
+###Oceania
+games_Oc <- data.frame()
+for (g in games) {
+  gamelist <- list(Game = g, 
+                   Player_number = nrow(Oceania[which(Oceania$Tags==g),]) )
+  games_Oc <- rbind(games_Oc,gamelist)
+}
+games_Oc<-games_Oc[order(games_Oc$Player_number,decreasing = TRUE),]
+row.names(games_Oc) <- 1:nrow(games_Oc)
+
+###Africa
+games_Af <- data.frame()
+for (g in games) {
+  gamelist <- list(Game = g, 
+                   Player_number = nrow(Africa[which(Africa$Tags==g),]) )
+  games_Af <- rbind(games_Af,gamelist)
+}
+games_Af<-games_Af[order(games_Af$Player_number,decreasing = TRUE),]
+row.names(games_Af) <- 1:nrow(games_Af)
