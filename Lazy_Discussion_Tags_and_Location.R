@@ -168,8 +168,15 @@ for (coun in Africa_list) {
   Africa <- rbind(Africa,addlist)
 }
 
+### Statistics the 8 games player total number across 5 Continents
+continent <- c("Americas","Europe","Asia","Oceania","Africa")
+count <-c(nrow(Americas),nrow(Europe),nrow(Asia),nrow(Oceania),nrow(Africa))
+Continent_Player <- data.frame(continent,number_of_users = count)
+Continent_Player<-Continent_Player[order(Continent_Player$number_of_users,decreasing = TRUE),]
+row.names(Continent_Player) <- 1:nrow(Continent_Player)
+
 ############################# Statistic 8 games player number in 5 Continents #################################################
-### Statistics on the number of players playing these 8 games across 5 continents
+### Statistics on the number of players playing each of the 8 games in the 5 continents
 ###Americas
 games <- unique(playerlist$Tags)
 games_Am <- data.frame()
@@ -220,3 +227,41 @@ for (g in games) {
 }
 games_Af<-games_Af[order(games_Af$Player_number,decreasing = TRUE),]
 row.names(games_Af) <- 1:nrow(games_Af)
+
+################################ code for drawing pie plot ##################################################
+###America player
+percentages_Am <- round(games_Am$Player_number / sum(games_Am$Player_number) * 100,2)
+labels_Am <- paste(games_Am$Game, percentages_Am, "%", sep = " ")
+colors <- rainbow(length(games_Am$Player_number))
+pie(games_Am$Player_number, labels = labels_Am, col = colors, main = "Percentage of Players in the Americas by Games")
+
+###Europe player
+percentages_Eu <- round(games_Eu$Player_number / sum(games_Eu$Player_number) * 100,2)
+labels_Eu <- paste(games_Eu$Game, percentages_Eu, "%", sep = " ")
+colors <- rainbow(length(games_Eu$Player_number))
+pie(games_Eu$Player_number, labels = labels_Eu, col = colors, main = "Percentage of Players in the Europe by Games")
+
+###Asia player
+percentages_Asia <- round(games_Asia$Player_number / sum(games_Asia$Player_number) * 100,2)
+labels_Asia <- paste(games_Asia$Game, percentages_Asia, "%", sep = " ")
+colors <- rainbow(length(games_Asia$Player_number))
+pie(games_Asia$Player_number[games_Asia$Player_number > 0], labels = labels_Asia[games_Asia$Player_number > 0],
+    col = colors,
+    main = "Percentage of Players in the Asia by Games")
+
+###Oceania player
+percentages_Oc <- round(games_Oc$Player_number / sum(games_Oc$Player_number) * 100,2)
+labels_Oc <- paste(games_Oc$Game, percentages_Oc, "%", sep = " ")
+colors <- rainbow(length(games_Oc$Player_number))
+pie(games_Oc$Player_number[games_Oc$Player_number > 0], labels = labels_Oc[games_Oc$Player_number > 0],
+    col = colors,
+    main = "Percentage of Players in the Oceania by Games")
+
+###Africa player
+percentages_Af <- round(games_Af$Player_number / sum(games_Af$Player_number) * 100,2)
+labels_Af <- paste(games_Af$Game, percentages_Af, "%", sep = " ")
+colors <- rainbow(length(games_Af$Player_number))
+pie(games_Af$Player_number[games_Af$Player_number > 0], labels = labels_Af[games_Af$Player_number > 0],
+    col = colors,
+    main = "Percentage of Players in the Africa by Games")
+
