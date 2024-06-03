@@ -58,3 +58,43 @@ for (coun in Country_list_new) {
 }
 Country_count<-Country_count[order(Country_count$numbers_of_users,decreasing = TRUE),]
 row.names(Country_count) <- 1:nrow(Country_count)
+
+### Statistics on the number of Users in five Continents
+User_Americas <- data.frame()
+for (coun in Americas_list) {
+  addlist <- User_country[which(User_country$Country==coun),]
+  User_Americas <- rbind(User_Americas,addlist)
+}
+Americas_count <- nrow(User_Americas)
+
+User_Europe <- data.frame()
+for (coun in Europe_list) {
+  addlist <- User_country[which(User_country$Country==coun),]
+  User_Europe <- rbind(User_Europe,addlist)
+}
+Europe_count <- nrow(User_Europe)
+
+User_Asia <- data.frame()
+for (coun in Asia_list) {
+  addlist <- User_country[which(User_country$Country==coun),]
+  User_Asia <- rbind(User_Asia,addlist)
+}
+Asia_count <- nrow(User_Asia)
+
+User_Oceania <- data.frame()
+for (coun in Oceania_list) {
+  addlist <- User_country[which(User_country$Country==coun),]
+  User_Oceania <- rbind(User_Oceania,addlist)
+}
+Oceania_count <- nrow(User_Oceania)
+
+
+User_Africa <- data.frame()
+for (coun in Africa_list) {
+  addlist <- User_country[which(User_country$Country==coun),]
+  User_Africa <- rbind(User_Africa,addlist)
+}
+Africa_count <- nrow(User_Africa)
+Continent_count <- data.frame(Continent= c("Americas","Europe","Asia","Oceania","Africa"),
+                              numbers_of_users=c(Americas_count,Europe_count,Asia_count,Oceania_count,Africa_count)
+)
