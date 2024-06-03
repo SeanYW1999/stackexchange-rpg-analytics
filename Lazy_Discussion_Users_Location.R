@@ -19,6 +19,32 @@ User_info <- dbGetQuery(connect,"SELECT Id,
                                  WHERE Location IS NOT NULL AND Id > 0;")
 
 ###add a new column for saving the Location's Nation
-Country <- matrix(NA,nrow(User_info),1)
-User_info <- cbind(User_info,Country)
-User_info[,4] <- User_info[,3]
+###use the code in Lazy_Discussion_Location_to_Country.R
+databases_discuss <- User_info
+
+###create a list store all countries
+Country_list <- c("USA","Canada","Mexico","Colombia","Brazil","Argentina","Peru",
+                  "Europe","France","Switzerland","UK","Ireland","Finland","Norway",
+                  "Sweden","Denmark","Germany","Luxembourg","Poland","Greece",
+                  "Belgium","Italy","Netherland","Czech Republic","Lithuania","Romania",
+                  "Latvia","Estonia","Hungary","Serbia","Spain","Portugal","Turkey","Cyprus",
+                  "Bulgaria","Austria","Russia","Belarus","Ukraine",
+                  "India","Pakistan","Iran","Taiwan","China","Hong Kong","Japan",
+                  "South Korea","Nepal","Kazakhstan","Banglades","Israel","Dubai",
+                  "Malaysia","Singapore","Philippines","Vietnam","Thailand",
+                  "Cambodia","Indonesia",
+                  "Australia","New Zealand",
+                  "Egypt","Uganda","Kenya","Morocco","South Africa")
+
+Country_list_new <- Country_list[Country_list != "Europe"]
+
+### Filter data that can be recognized and categorized by Location.
+User_country <- data.frame()
+for (coun in Country_list) {
+  addlist <- databases_discuss[which(databases_discuss$Country==coun),]
+  User_country <- rbind(User_country,addlist)
+}
+
+User_country <- data.frame(Id = User_country$Id,Displyname = User_country$DisplayName,
+                           Country = User_country$Country)
+User_country_new <- User_country[which(User_country$Country!="Europe"),]
