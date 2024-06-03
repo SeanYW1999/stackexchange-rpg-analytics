@@ -12,3 +12,92 @@ SELECT * FROM Users ;
 DESCRIBE Tags  ;
 SELECT * FROM Tags t 
 ORDER BY COUNT DESC ;
+
+-- dnd
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'dnd|dungeons-and-dragons'
+GROUP BY Users.Id;
+
+-- pathfinder
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'PathFinder'
+GROUP BY Users.Id;
+
+-- world-of-darkness
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'world-of-darkness'
+GROUP BY Users.Id;
+
+-- chronicles-of-darkness
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'chronicles-of-darkness'
+GROUP BY Users.Id;
+
+-- vampire-the-masquerade
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'vampire-the-masquerade'
+GROUP BY Users.Id;
+
+-- mutants-and-masterminds
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'mutants-and-masterminds'
+GROUP BY Users.Id;
+
+-- dungeon-world
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'dungeon-world'
+GROUP BY Users.Id;
+
+-- shadowrun
+SELECT Users.Id,
+       Users.Location,
+       Posts.Tags 
+FROM Posts
+JOIN Users
+ON Posts.OwnerUserId = Users.Id
+WHERE Users.Location IS NOT NULL AND Users.Id > 0
+  AND Posts.Tags REGEXP 'shadowrun'
+GROUP BY Users.Id;
+
