@@ -354,3 +354,37 @@ WHERE Tags REGEXP 'shadowrun' AND
 CreationDate BETWEEN '2019.01.01 00:00:00' AND '2019.12.31 23:59:59'
 #ORDER BY CreationDate DESC
 ORDER BY CreationDate ASC) AS shadowrun_2019;
+
+###################################
+##dungeon-world_increased in 2021##
+###################################
+
+### 2023 ###
+SELECT Tags, ViewCount FROM Posts
+WHERE Tags REGEXP 'dungeon-world' AND
+CreationDate BETWEEN '2023.01.01 00:00:00' AND '2023.12.31 23:59:59'
+ORDER BY ViewCount DESC;
+
+### 2022 ###
+SELECT Tags, ViewCount FROM Posts
+WHERE Tags REGEXP 'dungeon-world' AND
+CreationDate BETWEEN '2022.01.01 00:00:00' AND '2022.12.31 23:59:59'
+ORDER BY ViewCount DESC;
+
+### 2021 ###
+SELECT Tags, ViewCount FROM Posts
+WHERE Tags REGEXP 'dungeon-world' AND
+CreationDate BETWEEN '2021.01.01 00:00:00' AND '2021.12.31 23:59:59'
+ORDER BY ViewCount DESC;
+
+### 2020 ###
+SELECT Tags, ViewCount FROM Posts
+WHERE Tags REGEXP 'dungeon-world' AND
+CreationDate BETWEEN '2020.01.01 00:00:00' AND '2020.12.31 23:59:59'
+ORDER BY ViewCount DESC;
+
+### 2019 ###
+SELECT Tags, ViewCount FROM Posts
+WHERE Tags REGEXP 'dungeon-world' AND
+CreationDate BETWEEN '2019.01.01 00:00:00' AND '2019.12.31 23:59:59'
+ORDER BY ViewCount DESCC;
