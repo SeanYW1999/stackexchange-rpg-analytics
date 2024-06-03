@@ -3,6 +3,7 @@ databases_discuss <-
 Country <- matrix(NA,nrow(databases_discuss),1)
 databases_discuss <- cbind(databases_discuss,Country)
 
+########################### country parts #####################################################################
 ###USA
 USA1 <- which(grepl("USA", databases_discuss$Location))
 USA2 <- which(grepl("United State", databases_discuss$Location))
@@ -354,3 +355,27 @@ databases_discuss[MRC1,4] <- "Morocco"
 ###South Africa
 AFR1 <- which(grepl("South Africa", databases_discuss$Location))
 databases_discuss[AFR1,4] <- "South Africa"
+
+########################### continent parts #####################################################################
+### Distribute Countries to their five Continents.
+Americas <- data.frame()
+Americas_list <- c("USA","Canada","Mexico","Colombia","Brazil","Argentina","Peru")
+
+Europe <- data.frame()
+Europe_list <- c("Europe","France","Switzerland","UK","Ireland","Finland","Norway",
+                 "Sweden","Denmark","Germany","Luxembourg","Poland","Greece",
+                 "Belgium","Italy","Netherland","Czech Republic","Lithuania","Romania",
+                 "Latvia","Estonia","Hungary","Serbia","Spain","Portugal","Turkey","Cyprus",
+                 "Bulgaria","Austria","Russia","Belarus","Ukraine")
+
+Asia <- data.frame()
+Asia_list <- c("India","Pakistan","Iran","Taiwan","China","Hong Kong","Japan",
+               "South Korea","Nepal","Kazakhstan","Banglades","Israel","Dubai",
+               "Malaysia","Singapore","Philippines","Vietnam","Thailand",
+               "Cambodia","Indonesia")
+
+Oceania <- data.frame()
+Oceania_list <- c("Australia","New Zealand")
+
+Africa <- data.frame()
+Africa_list <- c("Egypt","Uganda","Kenya","Morocco","South Africa")
