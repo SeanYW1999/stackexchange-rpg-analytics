@@ -13,6 +13,14 @@ DESCRIBE Tags  ;
 SELECT * FROM Tags t 
 ORDER BY COUNT DESC ;
 
+-- select all the Users id, Displayname, and Location for dicussind every Country's User number
+SELECT Id,
+       DisplayName,
+       Location 
+FROM Users
+WHERE Location IS NOT NULL AND Id > 0;
+
+-- Join Users and Posts and select the user who has posted a post about the 8 games we choose 
 -- dnd
 SELECT Users.Id,
        Users.Location,
