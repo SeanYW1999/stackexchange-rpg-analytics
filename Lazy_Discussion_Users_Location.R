@@ -60,6 +60,7 @@ Country_count<-Country_count[order(Country_count$numbers_of_users,decreasing = T
 row.names(Country_count) <- 1:nrow(Country_count)
 
 ### Statistics on the number of Users in five Continents
+###Americas
 User_Americas <- data.frame()
 for (coun in Americas_list) {
   addlist <- User_country[which(User_country$Country==coun),]
@@ -67,6 +68,7 @@ for (coun in Americas_list) {
 }
 Americas_count <- nrow(User_Americas)
 
+###Europe
 User_Europe <- data.frame()
 for (coun in Europe_list) {
   addlist <- User_country[which(User_country$Country==coun),]
@@ -74,6 +76,7 @@ for (coun in Europe_list) {
 }
 Europe_count <- nrow(User_Europe)
 
+###Asia
 User_Asia <- data.frame()
 for (coun in Asia_list) {
   addlist <- User_country[which(User_country$Country==coun),]
@@ -81,6 +84,7 @@ for (coun in Asia_list) {
 }
 Asia_count <- nrow(User_Asia)
 
+###Oceania
 User_Oceania <- data.frame()
 for (coun in Oceania_list) {
   addlist <- User_country[which(User_country$Country==coun),]
@@ -88,7 +92,7 @@ for (coun in Oceania_list) {
 }
 Oceania_count <- nrow(User_Oceania)
 
-
+###Africa
 User_Africa <- data.frame()
 for (coun in Africa_list) {
   addlist <- User_country[which(User_country$Country==coun),]
