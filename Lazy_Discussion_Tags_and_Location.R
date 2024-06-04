@@ -195,7 +195,7 @@ for (g in games) {
                    Player_number = nrow(Europe[which(Europe$Tags==g),]) )
   games_Eu <- rbind(games_Eu,gamelist)
 }
-games_Eu<-games_Eu[order(games_Eu$Player_number,decreasing = TRUE),]
+games_Eu<-games_Eu[c(1,2,8,7,3,4,5,6),]
 row.names(games_Eu) <- 1:nrow(games_Eu)
 
 ###Asia
@@ -205,7 +205,7 @@ for (g in games) {
                    Player_number = nrow(Asia[which(Asia$Tags==g),]) )
   games_Asia <- rbind(games_Asia,gamelist)
 }
-games_Asia<-games_Asia[order(games_Asia$Player_number,decreasing = TRUE),]
+games_Asia<-games_Asia[c(1,2,8,7,3,4,5,6),]
 row.names(games_Asia) <- 1:nrow(games_Asia)
 
 ###Oceania
@@ -215,7 +215,7 @@ for (g in games) {
                    Player_number = nrow(Oceania[which(Oceania$Tags==g),]) )
   games_Oc <- rbind(games_Oc,gamelist)
 }
-games_Oc<-games_Oc[order(games_Oc$Player_number,decreasing = TRUE),]
+games_Oc<-games_Oc[c(1,2,8,7,3,4,5,6),]
 row.names(games_Oc) <- 1:nrow(games_Oc)
 
 ###Africa
@@ -225,7 +225,7 @@ for (g in games) {
                    Player_number = nrow(Africa[which(Africa$Tags==g),]) )
   games_Af <- rbind(games_Af,gamelist)
 }
-games_Af<-games_Af[order(games_Af$Player_number,decreasing = TRUE),]
+games_Af<-games_Af[c(1,2,8,7,3,4,5,6),]
 row.names(games_Af) <- 1:nrow(games_Af)
 
 ################################ code for drawing pie plot ##################################################
